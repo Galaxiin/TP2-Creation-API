@@ -17,7 +17,7 @@ class Editeur
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"ListeSimple"})
+     * @Groups({"ListeSimpleEditeur"})
      */
     private $id;
 

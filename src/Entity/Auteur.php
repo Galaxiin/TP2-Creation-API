@@ -17,7 +17,7 @@ class Auteur
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"ListeSimple"})
+     * @Groups({"ListeSimpleAuteur"})
      */
     private $id;
 
