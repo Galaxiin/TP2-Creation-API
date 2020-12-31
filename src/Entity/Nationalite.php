@@ -24,12 +24,13 @@ class Nationalite
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"ListeComplexeGenre"})
+     * @Groups({"ListeSimpleAuteur","ListeComplexeAuteur"})
      */
     private $libelle;
 
     /**
      * @ORM\OneToMany(targetEntity=Auteur::class, mappedBy="nationalite")
-     * @Groups({"ListeComplexe"})
+     * @Groups({"ListeComplexeGenre"})
      */
     private $auteurs;
 

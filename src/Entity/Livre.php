@@ -22,18 +22,21 @@ class Livre
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"ListeComplexeGenre"})
+     * @Groups({"ListeComplexeAuteur"})
      */
     private $isbn;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"ListeComplexeGenre"})
+     * @Groups({"ListeComplexeAuteur"})
      */
     private $titre;
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"ListeSimple"})
+     * @Groups({"ListeSimpleLivre"})
+     * @Groups({"ListeComplexeAuteur"})
      */
     private $prix;
 
@@ -48,25 +51,29 @@ class Livre
      * @ORM\ManyToOne(targetEntity=Editeur::class, inversedBy="livres")
      * @ORM\JoinColumn(nullable=false)
      * @Groups({"ListeComplexeGenre"})
+     * @Groups({"ListeComplexeAuteur"})
      */
     private $Editeur;
 
     /**
      * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="livres")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"ListeComplexe"})
+     * @Groups({"ListeComplexeLivre"})
+     * @Groups({"ListeComplexeAuteur"})
      */
     private $Genre;
 
     /**
      * @ORM\Column(type="integer")
      * @Groups({"ListeSimple"})
+     * @Groups({"ListeComplexeAuteur"})
      */
     private $annee;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"ListeSimple"})
+     * @Groups({"ListeComplexeAuteur"})
      */
     private $langue;
 

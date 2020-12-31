@@ -24,6 +24,7 @@ class Genre
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"ListeSimpleGenre","ListeComplexeGenre"})
+     * @Groups({"ListeComplexeAuteur"})
      */
     private $libelle;
 
