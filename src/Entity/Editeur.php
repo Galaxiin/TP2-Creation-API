@@ -5,11 +5,13 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\EditeurRepository;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EditeurRepository::class)
+ * @ApiResource()
  */
 class Editeur
 {
@@ -17,20 +19,16 @@ class Editeur
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"ListeSimpleEditeur"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"ListeComplexeGenre"})
-     * @Groups({"ListeComplexeAuteur"})
      */
     private $nom;
 
     /**
      * @ORM\OneToMany(targetEntity=Livre::class, mappedBy="Editeur")
-     * @Groups({"ListeComplexe"})
      */
     private $livres;
 

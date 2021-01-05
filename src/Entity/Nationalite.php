@@ -5,11 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\NationaliteRepository;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=NationaliteRepository::class)
+ * @ApiResource()
  */
 class Nationalite
 {
@@ -17,20 +20,17 @@ class Nationalite
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"ListeSimpleNatio"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"ListeComplexeGenre"})
-     * @Groups({"ListeSimpleAuteur","ListeComplexeAuteur"})
      */
     private $libelle;
 
     /**
      * @ORM\OneToMany(targetEntity=Auteur::class, mappedBy="nationalite")
-     * @Groups({"ListeComplexeGenre"})
+     * @ApiSubresource()
      */
     private $auteurs;
 

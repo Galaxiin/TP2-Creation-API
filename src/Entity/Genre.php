@@ -5,11 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\GenreRepository;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=GenreRepository::class)
+ * @ApiResource()
  */
 class Genre
 {
@@ -17,20 +20,17 @@ class Genre
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"ListeSimpleGenre","ListeComplexeGenre"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"ListeSimpleGenre","ListeComplexeGenre"})
-     * @Groups({"ListeComplexeAuteur"})
      */
     private $libelle;
 
     /**
      * @ORM\OneToMany(targetEntity=Livre::class, mappedBy="Genre")
-     * @Groups({"ListeComplexeGenre"})
+     * @ApiSubresource()
      */
     private $livres;
 
