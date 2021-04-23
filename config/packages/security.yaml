@@ -7,7 +7,7 @@ security:
     providers:
         in_database:
             entity:
-                class: App/Entity/Adherent
+                class: App\Entity\Adherent
                 property: mail
     firewalls:
         dev:

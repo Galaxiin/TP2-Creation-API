@@ -73,6 +73,7 @@ class Adherent implements UserInterface
     const ROLE_ADMIN = 'ROLE_ADMIN';
     const ROLE_MANAGER = 'ROLE_MANAGER';
     const ROLE_ADHERENT = 'ROLE_ADHERENT';
+    const DEFAULT_ROLE = 'ROLE_ADHERENT';
 
     /**
      * @ORM\Id
@@ -140,7 +141,7 @@ class Adherent implements UserInterface
     {
         $this->prets = new ArrayCollection();
         $lerole[] = self::ROLE_ADHERENT;
-        $this->roles = $lerole;
+        $this->roles = [self::DEFAULT_ROLE];
     }
 
     public function getId(): ?int
